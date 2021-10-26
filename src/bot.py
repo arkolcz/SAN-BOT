@@ -1,12 +1,17 @@
-import sys
-from utils import get_from_dotenv
-from constants import BOT_TOKEN_DOTENV_KEY
+import discord  # type: ignore
 
 
-def main() -> int:
-    token = get_from_dotenv(BOT_TOKEN_DOTENV_KEY)
-    return 0
+class Bot(discord.Client):
+    def __init__(self):
+        super().__init__()
 
+    async def on_ready(self):
+        print(f"Bot started as {self.user}")
 
-if __name__ == "__main__":
-    sys.exit(main())
+    async def on_message(self, message):
+        if message.author == self.user:
+            return
+
+        if message.content == "?plan":
+            response = "Dummy response"
+            await message.channel.send(response)
