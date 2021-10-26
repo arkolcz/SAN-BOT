@@ -1,11 +1,11 @@
-name: flake8-lint
+name: ci-lint
 
 on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Setup Enviroment
+    name: Lint
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.8
