@@ -1,9 +1,17 @@
-import sys
+import discord  # type: ignore
 
 
-def main() -> int:
-    return 0
+class Bot(discord.Client):
+    def __init__(self):
+        super().__init__()
 
+    async def on_ready(self):
+        print(f"Bot started as {self.user}")
 
-if __name__ == "__main__":
-    sys.exit(main())
+    async def on_message(self, message):
+        if message.author == self.user:
+            return
+
+        if message.content == "?plan":
+            response = "Dummy response"
+            await message.channel.send(response)
