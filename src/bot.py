@@ -1,4 +1,6 @@
 import discord  # type: ignore
+from site_crawler import Crawler
+from constants import SAN_SITE_URL
 
 
 class Bot(discord.Client):
@@ -12,6 +14,7 @@ class Bot(discord.Client):
         if message.author == self.user:
             return
 
-        if message.content == "?plan":
-            response = "Dummy response"
+        if message.content == "!plan":
+            crawler = Crawler(SAN_SITE_URL)
+            response = crawler.get_schedule()
             await message.channel.send(response)
