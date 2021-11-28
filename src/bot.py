@@ -22,5 +22,5 @@ class Bot(discord.Client):
 
     @tasks.loop(hours=12, reconnect=True)
     async def update_san_timetable(self) -> None:
-        print("Enter")
+        print("Checking SAN timetable")
         self.timetable.update_timetable()
