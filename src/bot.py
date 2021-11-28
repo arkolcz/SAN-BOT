@@ -17,8 +17,8 @@ class Bot(discord.Client):
             return
 
         if message.content == "!plan":
-            message = self.timetable.get_san_timetable()
-            await message.channel.send(message)
+            response = self.timetable.get_san_timetable()
+            await message.channel.send(response)
 
     @tasks.loop(hours=12, reconnect=True)
     async def update_san_timetable(self) -> None:
