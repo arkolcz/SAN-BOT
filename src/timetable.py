@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Any, Union
 import mechanize  # type: ignore
 from utils import get_from_dotenv
 from constants import (
@@ -24,7 +24,15 @@ class Timetable:
     def get_san_timetable(self) -> Optional[str]:
         return self.current_timetable
 
-    def update_timetable(self) -> None:
+    def check_timetable_changes(self) -> bool:
+        timetable = self._get_current_timetable()
+        if timetable != self.current_timetable:
+            self.current_timetable = timetable
+            print("Synced new Timetable!")
+            return True
+        return False
+
+    def _get_current_timetable(self) -> Union[str, Any]:
         # TODO: This could be potentially optimized. Instead of creating a new
         # browser object each time, existing object could be reused.
         browser = mechanize.Browser()
@@ -37,4 +45,5 @@ class Timetable:
         match = re.search(SAN_CLASS_SCHEDULE_REGEX, response)
 
         if match:
-            self.current_timetable = match.group(0)
+            return match.group(0)
+        return None
