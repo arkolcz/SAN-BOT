@@ -14,8 +14,8 @@ class Bot(discord.Client):
     async def on_ready(self) -> None:
         print(f"Bot started as {self.user}")
         self.sync_san_timetable.start()
-        channel_id = int(get_from_dotenv(BOT_DEDICATED_CHANNEL_ID))
-        self.channel = self.get_channel(channel_id)
+        channel_id = get_from_dotenv(BOT_DEDICATED_CHANNEL_ID)
+        self.channel = self.get_channel(int(channel_id))
 
     async def on_message(self, message) -> None:
         if message.author == self.user:

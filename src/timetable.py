@@ -1,4 +1,4 @@
-from typing import Optional, Any, Union
+from typing import Any, Union
 import mechanize  # type: ignore
 from utils import get_from_dotenv
 from constants import (
@@ -19,9 +19,9 @@ class Timetable:
     def __init__(self) -> None:
         self.login = get_from_dotenv(SAN_LOGIN_DOTENV_KEY)
         self.password = get_from_dotenv(SAN_PASS_DOTENV_KEY)
-        self.current_timetable = None
+        self.current_timetable: str
 
-    def get_san_timetable(self) -> Optional[str]:
+    def get_san_timetable(self) -> str:
         return self.current_timetable
 
     def check_timetable_changes(self) -> bool:
