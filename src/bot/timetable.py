@@ -1,8 +1,8 @@
 from typing import Any, Union
 from urllib.error import HTTPError
 import mechanize  # type: ignore
-from utils import get_from_dotenv
-from constants import (
+from bot.utils import get_from_dotenv
+from bot.constants import (
     SAN_SITE_URL,
     SAN_LOGIN_DOTENV_KEY,
     SAN_PASS_DOTENV_KEY,
@@ -27,7 +27,7 @@ class Timetable:
 
     def check_timetable_changes(self) -> bool:
         timetable = self._get_current_timetable_from_site()
-        if timetable != self.actual_timetable:
+        if timetable and timetable != self.actual_timetable:
             self.actual_timetable = timetable
             print("Synced new Timetable!")
             return True
@@ -51,3 +51,4 @@ class Timetable:
             return None
         except HTTPError:
             print(f"Service {SAN_SITE_URL} is unavaiable")
+            return None
