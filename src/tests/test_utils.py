@@ -1,5 +1,5 @@
-from src import utils
-from src.constants import BOT_TOKEN_DOTENV_KEY
+from bot import utils
+from bot.constants import BOT_TOKEN_DOTENV_KEY
 import pytest
 
 

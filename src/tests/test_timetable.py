@@ -1,5 +1,5 @@
 from bot.timetable import Timetable
-from mock import patch  # type: ignore
+from mock import patch
 import pytest
 
 
