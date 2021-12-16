@@ -23,3 +23,6 @@ jobs:
     - name: MyPy
       run: |
         mypy src/
+    - name: UnitTests
+      run : |
+        pytest -v
