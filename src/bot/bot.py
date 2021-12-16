@@ -1,12 +1,12 @@
 import discord  # type: ignore
 from discord.ext import tasks  # type: ignore
-from timetable import Timetable
-from constants import BOT_DEDICATED_CHANNEL_ID
-from utils import get_from_dotenv
+from bot.timetable import Timetable
+from bot.constants import BOT_DEDICATED_CHANNEL_ID
+from bot.utils import get_from_dotenv
 
 
 class Bot(discord.Client):
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         self.timetable = Timetable()
         self.channel = None
