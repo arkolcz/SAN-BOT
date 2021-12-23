@@ -1,8 +1,8 @@
 import discord  # type: ignore
 from discord.ext import tasks  # type: ignore
-from bot.timetable import Timetable
-from bot.constants import BOT_DEDICATED_CHANNEL_ID
-from bot.utils import get_from_dotenv
+from sanbot.timetable import Timetable
+from sanbot.constants import BOT_DEDICATED_CHANNEL_ID
+from sanbot.utils import get_from_dotenv
 
 
 class Bot(discord.Client):

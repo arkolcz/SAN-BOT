@@ -1,8 +1,8 @@
 from typing import Any, Union
 from urllib.error import HTTPError
 import mechanize  # type: ignore
-from bot.utils import get_from_dotenv
-from bot.constants import (
+from sanbot.utils import get_from_dotenv
+from sanbot.constants import (
     SAN_SITE_URL,
     SAN_LOGIN_DOTENV_KEY,
     SAN_PASS_DOTENV_KEY,

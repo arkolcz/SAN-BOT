@@ -1,7 +1,7 @@
 import sys
-from bot.bot import Bot
-from bot.utils import get_from_dotenv
-from bot.constants import BOT_TOKEN_DOTENV_KEY
+from sanbot.bot import Bot
+from sanbot.utils import get_from_dotenv
+from sanbot.constants import BOT_TOKEN_DOTENV_KEY
 
 
 def main() -> int:

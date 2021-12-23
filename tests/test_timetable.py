@@ -1,4 +1,4 @@
-from bot.timetable import Timetable
+from sanbot.timetable import Timetable
 from mock import patch
 import pytest
 
@@ -9,7 +9,7 @@ def mock_init(self, login="", password="", actual_timetable=""):
     self.actual_timetable = actual_timetable
 
 
-@patch("bot.timetable.get_from_dotenv")
+@patch("sanbot.timetable.get_from_dotenv")
 def test_init_timetable(mock_get_from_dotenv):
     mock_get_from_dotenv.return_value = "dummy"
     expected_result = ("dummy", "dummy", "")
@@ -69,7 +69,7 @@ def test_check_timetable_changes(
     ],
 )
 @patch.object(Timetable, "__init__", mock_init)
-@patch("bot.timetable.mechanize.Browser")
+@patch("sanbot.timetable.mechanize.Browser")
 def test_get_current_timetable_from_site(mock_browser, response, expected_result):
     mock_browser().submit().read.return_value = response
 

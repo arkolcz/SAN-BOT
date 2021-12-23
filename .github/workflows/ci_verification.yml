@@ -1,4 +1,4 @@
-name: ci-lint
+name: ci-verification
 
 on: [push, pull_request]
 
@@ -9,12 +9,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.8
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v2
       with:
         python-version: 3.8
     - name: Install Dependencies
       run: |
-        pip install -r requirements.txt
+        pip install -e .
     - name: flake8
       run: |
         flake8 src/
@@ -25,4 +25,4 @@ jobs:
         mypy src/
     - name: UnitTests
       run : |
-        pytest -v
+        pytest -vv
