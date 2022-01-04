@@ -34,7 +34,8 @@ class Timetable:
         return False
 
     def _get_current_timetable_from_site(self) -> Union[str, Any]:
-        # TODO: This could be potentially optimized. Instead of creating a new
+        # TODO: https://github.com/arkolcz/SAN-BOT/issues/6
+        # This could be potentially optimized. Instead of creating a new
         # browser object each time, existing object could be reused.
         browser = mechanize.Browser()
         try:
