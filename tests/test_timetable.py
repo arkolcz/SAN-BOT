@@ -41,7 +41,7 @@ def test_get_san_timetable():
 )
 @patch.object(Timetable, "__init__", mock_init)
 @patch.object(Timetable, "_get_current_timetable_from_site")
-@patch('builtins.print')
+@patch("builtins.print")
 def test_check_timetable_changes(
     mock_print,
     mock_get_current_timetable_from_site,
