@@ -1,8 +1,11 @@
-# SAN-BOT
+# SAN-BOT (OBSOLETE)
 
 ## Description
 
-Discord BOT for students from Społeczna Akademia Nauk made with Python
+Discord BOT for students from Społeczna Akademia Nauk made with Python.
+
+IMPORTANT DISCLAIMER: 
+This bot is no longer used, as Społeczna Akademia Nauk site disallowed bot crawlers on their website via robots.txt
 
 ### Installation
     pip install .
